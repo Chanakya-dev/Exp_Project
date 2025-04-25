@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./BackendSample
+    container_name: BackendSample
+    environment:
+      DATABASE_URL: "sqlite:///./users.db"
+    ports:
+      - "8000:8000"
+    networks:
+      - backend_network
+    volumes:
+      - ./BackendSample:/app  # Ensures the DB file is persisted in local volume
+
+  frontend:
+    build: ./testfront
+    container_name: testfront
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    networks:
+      - backend_network
+
+networks:
+  backend_network:
+    driver: bridge
