@@ -10,7 +10,7 @@ siva = FastAPI()
 
 siva.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # your React frontend URL
+    allow_origins=["*"],  # your React frontend URL
     allow_credentials=True,
     allow_methods=["*"],  # allow all HTTP methods
     allow_headers=["*"],  # allow all headers
