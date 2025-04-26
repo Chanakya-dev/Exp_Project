@@ -4,7 +4,7 @@ import axios from "axios";
 const API_URL =
   window.location.hostname === "localhost"
     ? "http://localhost:8000"
-    : "http://backend:8000";
+    : "https://exp-project.onrender.com";
 
 
 function UserManager() {
